@@ -6,7 +6,7 @@ clean:
 	rm main
 
 build:
-	cd scripts && chmod +x build.sh && sh build.sh && ./main
+	cd scripts && chmod +x build.sh && sh build.sh
 
 test: build
 	cd scripts && chmod +x run_tests.sh && sh run_tests.sh
