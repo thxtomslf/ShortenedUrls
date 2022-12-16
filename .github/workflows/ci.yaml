@@ -4,12 +4,12 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    container: thxtomslf/watch_up
+    container: thxtomslf/url-service
     steps:
       - run: make build
 
   test:
     runs-on: ubuntu-latest
-    container: thxtomslf/watch_up
+    container: thxtomslf/url-service
     steps:
       - run: make test
