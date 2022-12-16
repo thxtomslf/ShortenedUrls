@@ -9,8 +9,6 @@ services:
     volumes:
       - ./database-scripts:/docker-entrypoint-initdb.d
       - ./sql_data:/var/lib/postgres
-    ports:
-      - "5432:5432"
 
   app:
     image: thxtomslf/url-service:url-service
