@@ -3,7 +3,7 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: thxtomslf/url-service
+    container: thxtomslf/url-service:url-service
     steps:
       - uses: actions/checkout@v3
       - run: docker compose up
