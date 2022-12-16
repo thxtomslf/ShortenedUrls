@@ -3,8 +3,13 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: thxtomslf/url-service:url-service
     steps:
       - uses: actions/checkout@v3
-      - run: docker compose up
+      - uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: "./docker-compose.yml"
+          down-flags: "--volumes"
+          services: |
+            app
+            db
       - run: make test
