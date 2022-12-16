@@ -10,7 +10,7 @@ services:
       - ./database-scripts:/docker-entrypoint-initdb.d
       - ./sql_data:/var/lib/postgres
     ports:
-      - "172.17.0.1:5432:5432"
+      - "5432:5432"
 
   app:
     image: thxtomslf/url-service:url-service
