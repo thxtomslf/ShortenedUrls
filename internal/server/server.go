@@ -13,7 +13,7 @@ type Server struct {
 func NewServer(handler http.Handler) *Server {
 	return &Server{
 		httpServer: &http.Server{
-			Addr:    "localhost:8080",
+			Addr:    ":8080",
 			Handler: handler,
 		},
 	}
