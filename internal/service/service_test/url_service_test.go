@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"strings"
 	"testing"
+	"time"
 )
 
 type FirstTestGroupRequest struct {
@@ -23,6 +24,7 @@ type FirstTestGroupRequest struct {
 
 func TestUrlCutterService(t *testing.T) {
 	go app.Run()
+	time.Sleep(3000)
 	// создаем клиента
 	client := &http.Client{}
 
