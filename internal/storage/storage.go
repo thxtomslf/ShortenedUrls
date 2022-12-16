@@ -21,7 +21,7 @@ type Storage struct {
 }
 
 func Open(driver string) (*sql.DB, error) {
-	settings := "user=postgres password=password dbname=url_service port=5432 host=localhost sslmode=disable"
+	settings := "user=postgres password=password dbname=url_service port=5432 host=db sslmode=disable"
 	db, err := sql.Open(driver, settings)
 	return db, err
 }
