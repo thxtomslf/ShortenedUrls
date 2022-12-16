@@ -11,6 +11,4 @@ COPY . .
 
 RUN make build
 
-EXPOSE 8080
-
 ENTRYPOINT ./main
