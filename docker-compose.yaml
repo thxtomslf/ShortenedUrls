@@ -11,7 +11,7 @@ services:
       - ./sql_data:/var/lib/postgres
 
   app:
-    image: url-service
+    image: thxtomslf/url-service
     restart: always
     environment:
         POSTGRES_DB: "url_service"
