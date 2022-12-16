@@ -1,15 +1,10 @@
 on: push
 
 jobs:
-
-  build:
-    runs-on: ubuntu-latest
-    container: thxtomslf/url-service
-    steps:
-      - run: make build
-
   test:
     runs-on: ubuntu-latest
     container: thxtomslf/url-service
     steps:
+      - uses: actions/checkout@v3
+      - run: docker compose up
       - run: make test
