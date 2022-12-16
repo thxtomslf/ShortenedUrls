@@ -4,7 +4,9 @@
 - не имеет срока жизни ссылки;
 - избежать редиректов на ненужные ресурсы. 
 
-Докер-образ: thxtomslf/url-service.
-Базовые тесты в папке internal/service/service_test.
-Запуск тестов:
-make test
+## Запуск
+* Докер-образ: thxtomslf/url-service.
+* docker compose up - запуск сервера
+* make test - запуск тестов
+
+Тесты находятся в internal/service/service_test
