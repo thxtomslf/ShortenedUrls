@@ -11,10 +11,10 @@ import (
 )
 
 func Run() {
-	db, err := storage.Open()
+	db, err := storage.Open("postgres")
 	if err != nil {
 		fmt.Println(err.Error())
-		log.Fatal("[DEBUG] db connection failed")
+		log.Fatal("[DEBUG10] db connection failed")
 	}
 	internalStorage := storage.NewStorage(db)
 

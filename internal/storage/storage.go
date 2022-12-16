@@ -20,9 +20,9 @@ type Storage struct {
 	UrlsRepository Urls
 }
 
-func Open() (*sql.DB, error) {
-	settings := "user=postgres password=popisau11 dbname=shorturlsservicedatabase port=5432 host=localhost sslmode=disable"
-	db, err := sql.Open("postgres", settings)
+func Open(driver string) (*sql.DB, error) {
+	settings := "user=postgres password=password dbname=url_service port=5432 host=db sslmode=disable"
+	db, err := sql.Open(driver, settings)
 	return db, err
 }
 

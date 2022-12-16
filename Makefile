@@ -1,18 +1,12 @@
-.PHONY: all build check test clean
+.PHONY: all build test clean
 
-all: clean check build test
+all: clean build test
 
 clean:
-	rm -rf build
-
-check:
-	cd scripts && chmod +x run_linters.sh && ./run_linters.sh
-
-memcheck: build
-	cd scripts && chmod +x run_memcheck.sh && ./run_memcheck.sh
+	rm main
 
 build:
-	cd scripts && chmod +x build.sh && ./build.sh
+	cd scripts && chmod +x build.sh && sh build.sh
 
-test: build
-	cd scripts && chmod +x run_tests.sh && ./run_tests.sh
+test:
+	cd scripts && chmod +x run_tests.sh && sh run_tests.sh

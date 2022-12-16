@@ -22,13 +22,13 @@ func NewServer(handler http.Handler) *Server {
 func (server *Server) Start() {
 	err := server.httpServer.ListenAndServe()
 	if err != nil {
-		log.Fatal("[DEBUG] Server starting failed")
+		log.Fatal("[DEBUG11] Server starting failed")
 	}
 }
 
 func (server *Server) Stop(ctx *gin.Context) {
 	err := server.httpServer.Shutdown(ctx)
 	if err != nil {
-		log.Fatal("[DEBUG] Server stop failed")
+		log.Fatal("[DEBUG12] Server stop failed")
 	}
 }

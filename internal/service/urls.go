@@ -25,9 +25,10 @@ func (cutter *UrlCutterService) GetSourceURL(ctx *gin.Context) {
 	urls := &domain.Urls{
 		ShortUrl: strings.Trim(shortUrl, "/"),
 	}
+
 	gotUrls, err := cutter.UrlsRepository.GetSourceUrl(urls)
 	if err != nil {
-		fmt.Println("[DEBUG] " + err.Error())
+		fmt.Println("[DEBUG5] " + err.Error())
 		ctx.Status(http.StatusBadRequest)
 		return
 	}
@@ -45,12 +46,12 @@ func (cutter *UrlCutterService) GetCutUrl(ctx *gin.Context) {
 	urls := &domain.Urls{}
 	err := json.NewDecoder(ctx.Request.Body).Decode(&urls)
 	if err != nil {
-		fmt.Println("[DEBUG] " + err.Error())
+		fmt.Println("[DEBUG1] " + err.Error())
 		ctx.Status(http.StatusBadRequest)
 		return
 	}
 	if urls.SourceUrl == "" {
-		fmt.Println("[DEBUG] incorrect request body")
+		fmt.Println("[DEBUG2] incorrect request body")
 		ctx.Status(http.StatusBadRequest)
 		return
 	}
@@ -65,14 +66,14 @@ func (cutter *UrlCutterService) GetCutUrl(ctx *gin.Context) {
 	} else {
 		err = cutter.UrlsRepository.PutNewUrlPair(urls)
 		if err != nil {
-			fmt.Println("[DEBUG] database create field error: ", err.Error())
+			fmt.Println("[DEBUG3] database create field error: ", err.Error())
 			ctx.Status(http.StatusInternalServerError)
 			return
 		}
 	}
 	ctx.JSON(http.StatusOK, urls)
 	if err != nil {
-		fmt.Println("[DEBUG] url sending error")
+		fmt.Println("[DEBUG4] url sending error")
 		ctx.Status(http.StatusInternalServerError)
 		return
 	}

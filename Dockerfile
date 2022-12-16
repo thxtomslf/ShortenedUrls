@@ -1,8 +1,16 @@
-FROM ubuntu
-ENV DEBIAN_FRONTEND noninteractive
-WORKDIR ShortenedUrls
+FROM golang:latest
+
+WORKDIR /app
+
+COPY go.mod ./
+COPY go.sum ./
+
+RUN go mod download
+
 COPY . .
-RUN apt -y update && \
-    apt search golang-go && \
-    apt search gccgo-go && \
-    apt -y install golang-go \
+
+RUN make build
+
+EXPOSE 8080
+
+ENTRYPOINT ./main

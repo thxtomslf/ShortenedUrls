@@ -16,7 +16,7 @@ func NewHandler(urlCutService service.UrlCutter) *Handler {
 }
 
 func (handler *Handler) Init() *gin.Engine {
-	router := gin.New()
+	router := gin.Default()
 
 	// формат запроса: {"short_url": "some_hash"}
 	// код ответа при успехе - 302

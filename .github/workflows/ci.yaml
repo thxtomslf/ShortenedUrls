@@ -1,0 +1,15 @@
+on: push
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    container: thxtomslf/watch_up
+    steps:
+      - run: make build
+
+  test:
+    runs-on: ubuntu-latest
+    container: thxtomslf/watch_up
+    steps:
+      - run: make test

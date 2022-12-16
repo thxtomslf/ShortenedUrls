@@ -31,6 +31,9 @@ func (repository UrlsRepository) PutNewUrlPair(urls *domain.Urls) error {
 	sourceUrl := urls.SourceUrl
 
 	data, err := repository.db.Query("insert into public.urls (short_url, source_url) values ($1, $2)", shortUrl, sourceUrl)
+	if err != nil {
+		return err
+	}
 	defer data.Close()
 
 	return err
