@@ -1,6 +1,7 @@
 package service_test
 
 import (
+	"ShortenedUrls/internal/app"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -21,6 +22,7 @@ type FirstTestGroupRequest struct {
 }
 
 func TestUrlCutterService(t *testing.T) {
+	go app.Run()
 	// создаем клиента
 	client := &http.Client{}
 
