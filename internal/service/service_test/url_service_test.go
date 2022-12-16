@@ -38,7 +38,7 @@ func TestUrlCutterService(t *testing.T) {
 		{
 			"POST",
 			"{\"source_url\": \"google.com\"}",
-			"http://172.17.0.1:8080/service/cut",
+			"http://localhost:8080/service/cut",
 			"google.com",
 		},
 		{
@@ -46,31 +46,31 @@ func TestUrlCutterService(t *testing.T) {
 			// второго метода сервиса CutterService
 			"POST",
 			"{\"source_url\": \"google.com\"}",
-			"http://172.17.0.1:8080/service/cut",
+			"http://localhost:8080/service/cut",
 			"google.com",
 		},
 		{
 			"POST",
 			"{\"source_url\": \"music.yandex.ru\"}",
-			"http://172.17.0.1:8080/service/cut",
+			"http://localhost:8080/service/cut",
 			"music.yandex.ru",
 		},
 		{
 			"POST",
 			"{\"source_url\": \"https://www.ozon.ru/\"}",
-			"http://172.17.0.1:8080/service/cut",
+			"http://localhost:8080/service/cut",
 			"https://www.ozon.ru/",
 		},
 		{
 			"POST",
 			"{\"source_url\": \"https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task\"}",
-			"http://172.17.0.1:8080/service/cut",
+			"http://localhost:8080/service/cut",
 			"https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task",
 		},
 		{
 			"POST",
 			"{\"source_url\": \"http://www.mathtask.ru/0033-two-dimensional-random-variables.php#:~:text=%D0%94%D0%B2%D1%83%D0%BC%D0%B5%D1%80%D0%BD%D0%BE%D0%B9%20%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%BE%D0%B9%20%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B8%D0%BD%D0%BE%D0%B9%20%D0%BD%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F,%D1%85%20%D0%B8%20y%20%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D1%85%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9.&text=X%20%D0%B8%20Y%20%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B8%D0%BD%D1%8B,%D0%BA%D0%B0%D0%BA%20%D0%B4%D0%B8%D1%81%D0%BA%D1%80%D0%B5%D1%82%D0%BD%D1%8B%D0%BC%D0%B8%2C%20%D1%82%D0%B0%D0%BA%20%D0%B8%20%D0%BD%D0%B5%D0%BF%D1%80%D0%B5%D1%80%D1%8B%D0%B2%D0%BD%D1%8B%D0%BC%D0%B8.\"}",
-			"http://172.17.0.1:8080/service/cut",
+			"http://localhost:8080/service/cut",
 			"http://www.mathtask.ru/0033-two-dimensional-random-variables.php#:~:text=%D0%94%D0%B2%D1%83%D0%BC%D0%B5%D1%80%D0%BD%D0%BE%D0%B9%20%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%BE%D0%B9%20%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B8%D0%BD%D0%BE%D0%B9%20%D0%BD%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F,%D1%85%20%D0%B8%20y%20%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D1%85%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9.&text=X%20%D0%B8%20Y%20%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B8%D0%BD%D1%8B,%D0%BA%D0%B0%D0%BA%20%D0%B4%D0%B8%D1%81%D0%BA%D1%80%D0%B5%D1%82%D0%BD%D1%8B%D0%BC%D0%B8%2C%20%D1%82%D0%B0%D0%BA%20%D0%B8%20%D0%BD%D0%B5%D0%BF%D1%80%D0%B5%D1%80%D1%8B%D0%B2%D0%BD%D1%8B%D0%BC%D0%B8.",
 		},
 	}
@@ -109,7 +109,7 @@ func TestUrlCutterService(t *testing.T) {
 		{
 			"GetTest1",
 			"GET",
-			"http://172.17.0.1:8080/" + receivedUrlsList[0]["short_url"],
+			"http://localhost:8080/" + receivedUrlsList[0]["short_url"],
 			receivedUrlsList[0]["source_url"],
 			http.StatusPermanentRedirect,
 			GetTest,
@@ -117,7 +117,7 @@ func TestUrlCutterService(t *testing.T) {
 		{
 			"PostTest",
 			"POST",
-			"http://172.17.0.1:8080/" + receivedUrlsList[1]["short_url"],
+			"http://localhost:8080/" + receivedUrlsList[1]["short_url"],
 			"",
 			http.StatusNotFound,
 			PostTest,
@@ -125,7 +125,7 @@ func TestUrlCutterService(t *testing.T) {
 		{
 			"GetTest2",
 			"GET",
-			"http://172.17.0.1:8080/" + receivedUrlsList[1]["short_url"],
+			"http://localhost:8080/" + receivedUrlsList[1]["short_url"],
 			receivedUrlsList[1]["source_url"],
 			http.StatusPermanentRedirect,
 			GetTest,
@@ -133,7 +133,7 @@ func TestUrlCutterService(t *testing.T) {
 		{
 			"PutTest",
 			"PUT",
-			"http://172.17.0.1:8080/" + receivedUrlsList[1]["short_url"],
+			"http://localhost:8080/" + receivedUrlsList[1]["short_url"],
 			"",
 			http.StatusNotFound,
 			PutTest,
@@ -141,7 +141,7 @@ func TestUrlCutterService(t *testing.T) {
 		{
 			"GetTest3",
 			"GET",
-			"http://172.17.0.1:8080/" + receivedUrlsList[3]["short_url"],
+			"http://localhost:8080/" + receivedUrlsList[3]["short_url"],
 			receivedUrlsList[3]["source_url"],
 			http.StatusPermanentRedirect,
 			GetTest,
@@ -149,7 +149,7 @@ func TestUrlCutterService(t *testing.T) {
 		{
 			"NotExistingShortLinkTest",
 			"GET",
-			"http://172.17.0.1:8080/" + "I_AM_NOT_EXCITING",
+			"http://localhost:8080/" + "I_AM_NOT_EXCITING",
 			"",
 			http.StatusBadRequest,
 			NotExistingShortLink,
